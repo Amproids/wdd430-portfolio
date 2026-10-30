@@ -1,9 +1,9 @@
-export type Project = {
+export interface Project {
   title: string;
   description: string;
   technologies: string[];
-  link: string;
-};
+  link?: string;
+}
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -20,14 +20,16 @@ export default function ProjectCard({ project }: { project: Project }) {
           </li>
         ))}
       </ul>
-      <a
-        href={project.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-600 hover:underline font-medium"
-      >
-        View on GitHub
-      </a>
+      {project.link && (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline font-medium"
+        >
+          View on GitHub
+        </a>
+      )}
     </article>
   );
 }

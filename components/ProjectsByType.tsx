@@ -5,7 +5,7 @@ import { getProjects } from "@/lib/projects-db";
 export default async function ProjectsByType({
   type,
 }: {
-  type: "opensource" | "school";
+  type?: "opensource" | "school";
 }) {
   await connection();
   const projects = await getProjects(type);
